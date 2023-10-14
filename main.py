@@ -38,13 +38,24 @@ def random_color():
     return (r, g, b)
 
 
-directions = [0, 90, 180, 270]
-tim.speed("slow")
-tim.pensize(10)
-for _ in range(100):
-    tim.color(random_color())
-    tim.setheading(random.choice(directions))
-    tim.forward(30)
+#
+# directions = [0, 90, 180, 270]
+# tim.speed("slow")
+# tim.pensize(10)
+# for _ in range(100):
+#     tim.color(random_color())
+#     tim.setheading(random.choice(directions))
+#     tim.forward(30)
+tim.speed("fastest")
 
+
+def draw_spirograph(size_of_gap):
+    for _ in range(int(360 / size_of_gap)):
+        tim.color(random_color())
+        tim.circle(100)
+        tim.setheading(tim.heading() + size_of_gap)
+
+
+draw_spirograph(10)
 screen = t.Screen()
 screen.exitonclick()
